@@ -7,20 +7,16 @@
                     <thead class="thead-light">
                         <tr>
                             <th class="text-center">Name</th>
-                            <th class="text-center">Code</th>
-                            <th class="text-center">Symbol</th>
+                            <th class="text-center">Native name</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr *ngFor="let x of languages">
                             <td class="text-center">
-                                <div>Country</div>
+                                <div> {{x.name}}</div>
                             </td>
                             <td class="text-center">
-                                <div>Country</div>
-                            </td>
-                            <td class="text-center">
-                                <div>Country</div>
+                                <div>{{x.nativeName}}</div>
                             </td>
                         </tr>
                     </tbody>

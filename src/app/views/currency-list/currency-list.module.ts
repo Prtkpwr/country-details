@@ -4,8 +4,6 @@ import { NgModule } from '@angular/core';
 
 import { CurrencyListComponent } from './currency-list.component';
 
-// Dropdowns Component
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 // Buttons Routing
 import { CurrencyListRoutingModule } from './currency-list-routing.module';
@@ -16,7 +14,6 @@ import { CurrencyListRoutingModule } from './currency-list-routing.module';
   imports: [
     CommonModule,
     CurrencyListRoutingModule,
-    BsDropdownModule.forRoot(),
     FormsModule
   ],
   declarations: [

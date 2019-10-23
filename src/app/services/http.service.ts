@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from "rxjs";
 import { environment } from '../../environments/environment';
 import { Subject } from 'rxjs';
-
+const url = 'https://restcountries.eu/rest/v2';
 @Injectable({
   providedIn: 'root'
 })
@@ -23,9 +23,9 @@ export class HttpService {
   }
   constructor(private _http: HttpClient) { }
   public getCountryList() {
-    return this._http.get(`https://restcountries.eu/rest/v2/all`)
+    return this._http.get(`${url}/all`)
   }
   public getSingleCountryDetails(alpha3code){
-    return this._http.get(`https://restcountries.eu/rest/v2/alpha/${alpha3code}`)
+    return this._http.get(`${url}/alpha/${alpha3code}`)
   }
 }

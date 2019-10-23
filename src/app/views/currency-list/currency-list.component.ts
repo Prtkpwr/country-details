@@ -8,19 +8,34 @@ import { Subscription } from 'rxjs';
 export class CurrencyListComponent implements OnInit, OnDestroy {
   private Subscription:Subscription;
   private CountryValue;
+  public currencies: any;
+
   constructor(private HttpService:HttpService) {}
   ngOnInit() {
-    this.sample();
-    this.CountryValue = this.HttpService.getCountryValue();
+    this.subscriberFunction();
+    this.CountryValue = this.HttpService.changedValue;
+    if(this.CountryValue){
+      this.getCountryCurrency(this.CountryValue)
+    }
   }
-  sample(){
+  subscriberFunction(){
    this.Subscription = this.HttpService.listen().subscribe((res)=>{
       console.log(res)
+      this.getCountryCurrency(res)
     },(err)=>{
       console.log(err)
     })
   }
+  getCountryCurrency(alpha3code){
+    this.HttpService.getSingleCountryDetails(alpha3code).subscribe((res:any)=>{
+      // this.country = res;
+      this.currencies = res.currencies;
+    },(err)=>{
+      console.log(err)
+    })
+}
   ngOnDestroy(){
+    // Unsubscribe to avoid memory leak
     this.Subscription.unsubscribe()
   }
 

@@ -39,6 +39,7 @@ export class DefaultLayoutComponent implements OnDestroy {
   }
   selectedCountryChanged(){
     this.HttpService.changeValue(this.selectedCountry)
+    this.HttpService.changedValue = this.selectedCountry;
   }
   ngOnDestroy(): void {
     this.changes.disconnect();

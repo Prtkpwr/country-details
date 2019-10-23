@@ -7,32 +7,20 @@
                     <thead class="thead-light">
                         <tr>
                             <th class="text-center">Name</th>
-                            <th class="text-center">Native name</th>
+                            <th class="text-center">Code</th>
+                            <th class="text-center">Symbol</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr *ngFor="let x of currencies">
                             <td class="text-center">
-                                <div> Country</div>
+                                <div>{{x.name}}</div>
                             </td>
                             <td class="text-center">
-                                <div>India</div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text-center">
-                                <div> Capital</div>
+                                <div>{{x.code}}</div>
                             </td>
                             <td class="text-center">
-                                <div>India</div>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text-center">
-                                <div> Region</div>
-                            </td>
-                            <td class="text-center">
-                                <div>India</div>
+                                <div>{{x.symbol}}</div>
                             </td>
                         </tr>
                     </tbody>
